@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import logo from '../assets/logo.svg';
-import './Header.css';
+import logo from '../assets/images/logo.svg';
+import '../assets/style/Header.css';
 
 export default class App extends Component {
   render() {
     return (
-      <header>
+      <header className="text-center">
         <img src={logo} className="Header-logo" alt="logo" />
-        <h1 className="Header-title">Welcome to React</h1>
+        <h1>Welcome to React</h1>
       </header>
     );
   }
