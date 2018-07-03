@@ -2,15 +2,31 @@ import React, { Component } from 'react';
 import {Link, NavLink} from 'react-router-dom';
 
 export default class Navbar extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      collapsed: true,
+    };
+  }
+
+  toggleCollapsed = () => {
+    const collapsed = !this.state.collapsed;
+    this.setState({collapsed});
+  };
+
   render() {
+    const { collapsed } = this.state;
+    const navClass = collapsed ? "collapse" : "";
+
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <Link className="navbar-brand" to="/">PocReact</Link>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        <button onClick={this.toggleCollapsed} className="navbar-toggler" type="button"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
+        <div className={"navbar-collapse " + navClass}>
           <ul className="navbar-nav">
             <li className="nav-item" >
               <NavLink className="nav-link" exact to="/" activeClassName="active">Home</NavLink>
